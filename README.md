@@ -2,68 +2,66 @@
 
 DataScientest | Data Engineering / Search Architecture
 
-🎯 Contexte & objectif
+🎯 Context & Objective
 
-Ce projet a été réalisé dans le cadre d’une évaluation technique Elasticsearch chez DataScientest.
-Il met en situation un cas client e-commerce, spécialisé dans la vente de prêt-à-porter féminin, souhaitant :
+This project was completed as part of a technical Elasticsearch assessment at DataScientest.
+It simulates a real e-commerce client case in the women’s fashion sector who wants to:
 
-analyser la pertinence de ses produits,
+evaluate product relevance,
 
-explorer les avis clients,
+analyze customer reviews,
 
-effectuer des recherches textuelles et analytiques performantes,
+perform efficient text and analytical search,
 
-construire des indicateurs exploitables via Kibana.
+build actionable indicators using Kibana.
 
-L’objectif est de démontrer une maîtrise opérationnelle d’Elasticsearch, depuis l’ingestion de données jusqu’à l’analyse avancée et la visualisation.
+The objective is to demonstrate operational mastery of Elasticsearch, from data ingestion to advanced analysis and visualization.
 
-🧠 Approche Data Engineer / Architecte Search
+🧠 Data Engineer / Search Architect Approach
 
-Le projet adopte une logique orientée moteur de recherche distribué :
+The project follows a distributed search engine logic:
 
-Ingestion de données structurées (CSV)
+Structured data ingestion (CSV)
 
-Définition d’un mapping cohérent
+Definition of a consistent mapping
 
-Exploration et qualité des données
+Data exploration and quality checks
 
-Analyses statistiques et agrégations
+Statistical analysis and aggregations
 
-Requêtes avancées orientées décision
+Advanced decision-oriented queries
 
-Visualisation via Kibana
+Kibana visualizations
 
-Bien que réalisé sur un dataset réduit, le projet s’inscrit dans une logique scalable, conforme aux architectures Elasticsearch utilisées en production.
+Although the dataset is small, the project is designed to be scalable and aligned with production Elasticsearch architectures.
 
-📦 Structure du livrable
-1️⃣ bulk_script.py – Ingestion & indexation
+📦 Deliverable Structure
+1️⃣ bulk_script.py – Ingestion & Indexing
 
-Ce script permet de :
+This script allows you to:
 
-télécharger le dataset :
-
+download the dataset:
 https://dst-de.s3.eu-west-3.amazonaws.com/elasticsearch_fr/datasets/Womens_Clothing.csv
 
+create the eval index
 
-créer l’index eval,
+define an explicit mapping
 
-définir un mapping explicite,
+ingest the data into Elasticsearch
 
-ingérer les données dans Elasticsearch.
+🎯 Goal: simulate a controlled ingestion pipeline, the foundation of any performant search engine.
 
-🎯 Objectif : simuler une pipeline d’ingestion contrôlée, base de tout moteur de recherche performant.
+2️⃣ eval_elastic_x_y.py Scripts – Evaluation Queries
 
-2️⃣ Scripts eval_elastic_x_y.py – Requêtes d’évaluation
+Each script corresponds to a specific question from the assessment.
 
-Chaque script correspond à une question précise de l’évaluation.
-
-Exécution unitaire possible :
+Examples of execution:
 
 python3 eval_elastic_1_1.py
 python3 eval_elastic_2_3.py
 
 
-À chaque exécution, un dossier est automatiquement généré pour l’examinateur :
+Each run automatically generates a folder for the evaluator:
 
 /eval/questions/q_1-1/
 ├── mapping.json
@@ -71,94 +69,94 @@ python3 eval_elastic_2_3.py
 ├── response.json
 
 
-mapping.json : structure de l’index
+mapping.json: index structure
 
-request.json : requête Elasticsearch
+request.json: Elasticsearch query
 
-response.json : réponse brute du cluster
+response.json: raw cluster response
 
-🎯 Objectif : garantir traçabilité, auditabilité et reproductibilité des analyses.
+🎯 Goal: ensure traceability, auditability, and reproducibility of analysis.
 
-3️⃣ Qualité & exploration des données
+3️⃣ Data Quality & Exploration
 
-Les requêtes couvrent :
+Queries cover:
 
-valeurs uniques (Division Name, Department Name, Class Name)
+unique values (Division Name, Department Name, Class Name)
 
-volume total d’articles
+total number of products
 
-cohérence des appartenances Division / Département
+consistency between Division and Department
 
-détection de valeurs nulles
+detection of null values
 
-🎯 Objectif : comprendre et fiabiliser la donnée avant toute analyse avancée.
+🎯 Goal: understand and ensure data reliability before advanced analysis.
 
-4️⃣ Analyses statistiques & agrégations
+4️⃣ Statistical Analysis & Aggregations
 
-Mise en œuvre de :
+Implemented:
 
-histogrammes (âge des clientes),
+histograms (customer age)
 
-statistiques descriptives (moyenne, médiane des notes),
+descriptive statistics (average, median ratings)
 
-agrégations par classe de produit,
+aggregations by product class
 
-analyses croisées âge × type de produit.
+cross-analysis of age vs. product category
 
-🎯 Objectif : exploiter Elasticsearch comme moteur analytique temps réel, et pas uniquement comme moteur de recherche textuelle.
+🎯 Goal: use Elasticsearch as a real-time analytics engine, not just a text search engine.
 
-5️⃣ Analyses avancées orientées décision
+5️⃣ Advanced Decision-Oriented Analysis
 
-Cette partie répond directement à des enjeux business :
+This section answers business questions such as:
 
-termes les plus présents dans les produits bien notés,
+most common terms in highly rated products
 
-termes associés aux produits mal notés,
+most common terms in low-rated products
 
-identification des produits à conserver dans le catalogue,
+products the client should prioritize keeping in the catalog
 
-détection des produits à faible valeur ajoutée.
+products the client should stop investing in
 
-🎯 Objectif : transformer la donnée en recommandations exploitables pour le client.
+🎯 Goal: turn data into actionable recommendations for the client.
 
-6️⃣ dashboard.png – Visualisations Kibana
+6️⃣ dashboard.png – Kibana Visualizations
 
-4 visualisations intégrées dans un dashboard Kibana
+4 visualizations integrated into a Kibana dashboard
 
-Illustration de la capacité à industrialiser l’analyse via un outil BI temps réel
+Demonstrates ability to industrialize analysis with a real-time BI tool
 
-Approche proche d’un livrable client
+A deliverable similar to what a client would expect
 
-7️⃣ Fichiers informatifs
+7️⃣ Informative Files
 
-create_index_eval.txt : détail du mapping et de la création de l’index
+create_index_eval.txt: index mapping and creation details
 
-verification_index_eval.txt : vérification de l’existence et de la cohérence des index
+verification_index_eval.txt: index existence and consistency verification
 
-🏗️ Architecture cible (projection production)
+🏗️ Target Architecture (Production Projection)
 
-Bien que le projet soit réalisé en local, l’architecture est pensée pour évoluer vers :
+This project is designed to scale toward:
 
-ingestion automatisée via Logstash / Beats,
+automated ingestion with Logstash / Beats
 
-pipelines distribuées,
+distributed pipelines
 
-volumes de données massifs (millions de documents),
+large data volumes (millions of documents)
 
-monitoring et observabilité Elasticsearch.
+monitoring and observability in Elasticsearch
 
-🧩 Compétences mises en œuvre
+🧩 Skills Demonstrated
 
 🔍 Elasticsearch (index, mapping, query DSL)
 
-🐍 Python & client Elasticsearch
+🐍 Python & Elasticsearch client
 
-📊 Agrégations et statistiques avancées
+📊 Advanced aggregations and statistics
 
-🧠 Analyse textuelle orientée métier
+🧠 Business-oriented text analysis
 
-📈 Kibana (dashboards & visualisations)
+📈 Kibana (dashboards & visualizations)
 
-🏗️ Architecture Search & Analytics
+🏗️ Search & analytics architecture
 
-📁 Structuration professionnelle des livrables
+📁 Professional deliverable structuring
