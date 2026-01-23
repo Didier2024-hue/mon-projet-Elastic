@@ -1,0 +1,19 @@
+GET /eval/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "range": { "Rating": { "lt": 3 } } },
+        { "range": { "Positive Feedback Count": { "lt": 5 } } },
+        { "term": { "Recommended IND": 0 } }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "sort": [
+    { "Rating": { "order": "asc" } },
+    { "Positive Feedback Count": { "order": "asc" } }
+  ],
+  "size": 100,
+  "_source": ["Clothing ID", "Title", "Rating", "Recommended IND", "Department Name"]
+}

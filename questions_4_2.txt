@@ -1,0 +1,23 @@
+query = {
+  "size": 0,
+  "aggs": {
+    "rating_stats": {
+      "stats": {
+        "field": "Rating"
+      }
+    },
+    "rating_percentiles": {
+      "percentiles": {
+        "field": "Rating",
+        "percents": [50]
+      }
+    },
+    "rating_distribution": {
+      "terms": {
+        "field": "Rating",
+        "size": 5,
+        "order": { "_key": "asc" }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+GET eval/_search
+{
+  "size": 0,
+  "aggs": {
+    "unique_department": {
+      "cardinality": {
+        "field": "Department Name",
+        "precision_threshold": 40000  
+      }
+    }
+  }
+}

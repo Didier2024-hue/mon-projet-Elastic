@@ -1,0 +1,19 @@
+query = {
+  "size": 0,
+  "aggs": {
+    "departments": {
+      "terms": {
+        "field": "Department Name",
+        "size": 20
+      },
+      "aggs": {
+        "unique_articles": {
+          "cardinality": {
+            "field": "Clothing ID",
+            "precision_threshold": 40000
+          }        
+        }
+      }
+    }
+  }
+}

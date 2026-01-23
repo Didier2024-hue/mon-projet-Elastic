@@ -1,0 +1,30 @@
+query = {
+  "size": 0,
+  "aggs": {
+    "age_groups": {
+      "histogram": {
+        "field": "Age",
+        "interval": 20,
+        "min_doc_count": 1,
+        "order": { "_key": "asc" }
+      },
+      "aggs": {
+        "top_classes": {
+          "terms": {
+            "field": "Class Name",
+            "size": 3,
+            "order": { "_count": "desc" }
+          },
+          "aggs": {
+            "avg_rating": {
+              "avg": { "field": "Rating" }
+            }
+          }
+        },
+        "age_stats": {
+          "stats": { "field": "Age" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+PUT /eval
+{
+  "settings": {
+    "number_of_shards": 2,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "properties": {
+      "Clothing ID": { "type": "integer" },
+      "Age": { "type": "integer" },
+      "Title": { "type": "text" },
+      "Review Text": { "type": "text" },
+      "Rating": { "type": "integer" },
+      "Recommended IND": { "type": "integer" },
+      "Positive Feedback Count": { "type": "integer" },
+      "Division Name": { "type": "keyword" },
+      "Department Name": { "type": "keyword" },
+      "Class Name": { "type": "keyword" }
+    }
+  }
+}

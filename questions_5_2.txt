@@ -1,0 +1,24 @@
+GET /eval/_search
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        { "range": { "Rating": { "lte": 2 } } },
+        { "exists": { "field": "Review Text" } }
+      ],
+      "must_not": [
+        { "term": { "Review Text.keyword": "" } }
+      ]
+    }
+  },
+  "aggs": {
+    "negative_terms": {
+      "significant_text": {
+        "field": "Review Text",
+        "size": 15,
+        "filter_duplicate_text": true
+      }
+    }
+  }
+}

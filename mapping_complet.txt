@@ -1,0 +1,57 @@
+PUT eval/_mapping
+{
+  "properties": {
+    "Division Name": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "normalizer": "strict_keyword",
+          "ignore_above": 256
+        },
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "Department Name": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "normalizer": "strict_keyword",
+          "ignore_above": 256
+        },
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "Class Name": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "normalizer": "strict_keyword",
+          "ignore_above": 256
+        },
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "classname": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "normalizer": "strict_keyword",
+          "ignore_above": 256
+        },
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

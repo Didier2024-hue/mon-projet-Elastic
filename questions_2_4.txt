@@ -1,0 +1,12 @@
+GET eval/_search
+{
+  "size": 0,
+  "aggs": {
+    "unique_article": {
+      "cardinality": {
+        "field": "Clothing ID",
+        "precision_threshold": 40000  
+      }
+    }
+  }
+}

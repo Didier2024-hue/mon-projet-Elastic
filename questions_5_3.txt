@@ -1,0 +1,27 @@
+GET eval/_search
+{
+  "size": 0,
+  "aggs": {
+    "top_products": {
+      "terms": {
+        "field": "Class Name",
+        "size": 10,              
+        "order": {
+          "avg_rating": "desc"  
+        }
+      },
+      "aggs": {
+        "avg_rating": {
+          "avg": {
+            "field": "Rating"
+          }
+        },
+        "review_count": {
+          "value_count": {
+            "field": "Rating"
+          }
+        }
+      }
+    }
+  }
+}

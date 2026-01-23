@@ -1,0 +1,11 @@
+PUT eval/_settings
+{
+  "analysis": {
+    "normalizer": {
+      "strict_keyword": {
+        "type": "custom",
+        "filter": ["lowercase", "trim", "asciifolding"]
+      }
+    }
+  }
+}

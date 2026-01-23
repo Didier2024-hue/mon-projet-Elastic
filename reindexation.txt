@@ -1,0 +1,9 @@
+POST _reindex
+{
+  "source": {
+    "index": "eval"
+  },
+  "dest": {
+    "index": "eval_clean"
+  }
+}

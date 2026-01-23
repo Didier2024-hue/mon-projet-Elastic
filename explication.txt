@@ -1,0 +1,41 @@
+Ce tar contient les éléments suivants :
+
+1. bulk_script.py
+******************
+Ce script permet de télécharger et charger le fichier suivant dans Elasticsearch :
+wget https://dst-de.s3.eu-west-3.amazonaws.com/elasticsearch_fr/datasets/Womens_Clothing.csv
+
+Il prend en charge :
+
+la création de l’index,
+
+et l’ingestion du fichier CSV.
+
+2. Scripts eval_elastic_x_y.py
+******************************
+Ces scripts correspondent aux différentes questions de l’évaluation.
+Chaque script peut être exécuté individuellement, par exemple :
+
+bash
+Copier
+Modifier
+python3 ./eval_elastic_1_1.py
+python3 ./eval_elastic_2_3.py
+...
+
+À chaque exécution, un répertoire est automatiquement créé dans le dossier eval\questions pour l’examinateur. Ce répertoire contient toujours trois fichiers :
+exemple pour la question 1_1:
+Dans le repertoire /home/ubuntu/elasticsearch/eval/questions/q_1-1 : on trouvera les réponses de la question 1_1, les fichiers suivants : 
+- mapping.json : la structure de l’index (identique pour tous les scripts),
+- request.json : la requête Elasticsearch spécifique à la question,
+- response.json : la réponse retournée par Elasticsearch.
+
+3. dashboard.png
+Cette image contient quatre visualisations graphiques intégrées dans un tableau de bord Kibana, en réponse à la question 6.
+
+4. Fichiers texte informatifs :
+******************************
+create_index_eval.txt : détaille la structure de l’index.
+verification_index_eval.txt : permet de vérifier que les index ont bien été créés.
+
+tar -cvf exam_elk_josephine.tar -C /home/ubuntu/elasticsearch eval

@@ -1,0 +1,70 @@
+# POur se connecter 
+http://3.254.167.179/
+
+
+Un utilisateur administrateur est déjà instancié:
+cd elasticsearch
+docker-compose up -d
+
+VErification de la santé du cluster 
+# Vérification de la santé du cluster
+curl -X GET "http://localhost:9200/_cluster/health?pretty"
+
+# Vérification de la création de 1 node
+curl -X GET "http://localhost:9200/_cat/nodes?pretty"
+
+# Vérification des indices créés par le système
+curl -X GET "http://localhost:9200/_cat/indices?pretty"
+
+Login :
+User: elastic
+Mot de passe : datascientest
+
+# Vérification de la santé du cluster
+curl -X GET --cacert ./ca/ca.crt -u elastic:datascientest "http://localhost:9200/_cluster/health?pretty"
+
+
+# Vérification des indices créés par le système
+curl -X GET --cacert ./ca/ca.crt -u elastic:datascientest "http://localhost:9200/_cat/indices?pretty"
+
+
+kibana
+
+http://3.254.167.179:5601
+
+✅ Étapes pour arrêter et supprimer proprement es-container
+Arrêter le conteneur :
+docker stop es-container
+
+Puis le supprimer :
+docker rm es-container
+Redémarrer avec Docker Compose :
+
+Puis, le relancer
+docker-compose up -d
+
+3.254.167.179
+
+
+Pour voir mapping 
+GET eval/_mapping
+
+
+
+python3 ./eval_elastic_1_1.py
+python3 ./eval_elastic_1_2.py
+python3 ./eval_elastic_2_1.py
+python3 ./eval_elastic_2_2.py
+python3 ./eval_elastic_2_3.py
+python3 ./eval_elastic_2_4.py
+python3 ./eval_elastic_2_5.py
+python3 ./eval_elastic_2_6.py
+python3 ./eval_elastic_3.py
+python3 ./eval_elastic_4_1.py
+python3 ./eval_elastic_4_2.py
+python3 ./eval_elastic_4_3.py
+python3 ./eval_elastic_4_4.py
+python3 ./eval_elastic_5_1.py
+python3 ./eval_elastic_5_2.py
+python3 ./eval_elastic_5_3.py
+python3 ./eval_elastic_5_4.py

@@ -1,0 +1,12 @@
+GET eval/_search
+{
+  "size": 0,
+  "aggs": {
+    "unique_divisions": {
+      "cardinality": {
+        "field": "Division Name",
+        "precision_threshold": 40000  // Précision maximale
+      }
+    }
+  }
+}

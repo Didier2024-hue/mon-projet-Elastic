@@ -1,0 +1,13 @@
+GET /eval/_search
+{
+  "size": 0,
+  "aggs": {
+    "age_histogram": {
+      "histogram": {
+        "field": "Age",
+        "interval": 20,
+        "min_doc_count": 1
+      }
+    }
+  }
+}

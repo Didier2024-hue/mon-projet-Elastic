@@ -1,0 +1,33 @@
+query = {
+  "size": 0,
+  "aggs": {
+    "notes_par_classe": {
+      "terms": {
+        "field": "Class Name",
+        "size": 20,
+        "order": { "moyenne_notes": "desc" }
+      },
+      "aggs": {
+        "moyenne_notes": {
+          "avg": { "field": "Rating" }
+        },
+        "median_notes": {
+          "percentiles": {
+            "field": "Rating",
+            "percents": [50]
+          }
+        },
+        "distribution_notes": {
+          "terms": {
+            "field": "Rating",
+            "size": 5,
+            "order": { "_count": "desc" }
+          }
+        },
+        "stats_completes": {
+          "extended_stats": { "field": "Rating" }
+        }
+      }
+    }
+  }
+}
