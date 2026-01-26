@@ -36,6 +36,8 @@ Kibana visualizations
 Although the dataset is small, the project is designed to be scalable and aligned with production Elasticsearch architectures.
 
 📦 Deliverable Structure
+
+
 1️⃣ bulk_script.py – Ingestion & Indexing
 
 This script allows you to:
