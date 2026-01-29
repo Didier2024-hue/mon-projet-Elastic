@@ -1,11 +1,10 @@
 🔍 Elasticsearch – Search & Analytics Evaluation Project
 
-DataScientest | Data Engineering / Search Architecture
-
 🎯 Context & Objective
 
-This project was completed as part of a technical Elasticsearch assessment at DataScientest.
-It simulates a real e-commerce client case in the women’s fashion sector who wants to:
+This project was completed as part of a technical Elasticsearch assessment
+
+It is a real e-commerce client case in the women’s fashion sector who wants to:
 
 evaluate product relevance,
 
